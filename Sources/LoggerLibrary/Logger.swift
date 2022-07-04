@@ -4,30 +4,30 @@
 //
 //  Created by Ondřej Veselý on 04.07.2022.
 //
+
 public protocol Logger {
-    associatedtype Category: CustomStringConvertible
     func setup(logLevel: LogLevel)
-    func log(_ level: LogLevel, _ message: @autoclosure () -> String)
+    func log<Category>(_ level: LogLevel, _ category: Category, _ message: @autoclosure () -> String)
 }
 
 public extension Logger {
-    func debug(_ message: @autoclosure () -> String) {
-        log(.debug, message())
+    func debug<Category>(_ category: Category, _ message: @autoclosure () -> String) {
+        log(.debug, category, message())
     }
 
-    func verbose(_ message: @autoclosure () -> String) {
-        log(.verbose, message())
+    func verbose<Category>(_ category: Category, _ message: @autoclosure () -> String) {
+        log(.verbose, category, message())
     }
 
-    func info(_ message: @autoclosure () -> String) {
-        log(.info, message())
+    func info<Category>(_ category: Category, _ message: @autoclosure () -> String) {
+        log(.info, category, message())
     }
 
-    func warning(_ message: @autoclosure () -> String) {
-        log(.warning, message())
+    func warning<Category>(_ category: Category, _ message: @autoclosure () -> String) {
+        log(.warning, category, message())
     }
 
-    func error(_ message: @autoclosure () -> String) {
-        log(.error, message())
+    func error<Category>(_ category: Category, _ message: @autoclosure () -> String) {
+        log(.error, category, message())
     }
 }

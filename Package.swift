@@ -5,11 +5,14 @@ import PackageDescription
 
 let package = Package(
     name: "LoggerLibrary",
+    platforms: [
+        .iOS(.v13), .tvOS(.v13), .macOS(.v10_15), .watchOS(.v6)
+    ],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "LoggerLibrary",
-            targets: ["LoggerLibrary"]),
+            targets: ["LoggerLibrary"])
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -23,6 +26,5 @@ let package = Package(
             dependencies: []),
         .testTarget(
             name: "LoggerLibraryTests",
-            dependencies: ["LoggerLibrary"]),
-    ]
-)
+            dependencies: ["LoggerLibrary"])
+    ])

@@ -1,0 +1,16 @@
+included:
+
+excluded:
+  - IntentDefinitionGenerated 
+  - .build
+  - Package.swift
+
+line_length: 160
+
+identifier_name:
+  min_length: 2
+  max_length:
+    warning: 32
+    error: 64
+  excluded:
+    - id

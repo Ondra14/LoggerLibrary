@@ -5,7 +5,9 @@
 //  Created by Ondřej Veselý on 04.07.2022.
 //
 
-public enum LogLevel: String, CaseIterable, Codable {
+public enum LogLevel: Int, CaseIterable, Codable {
+    /// Disables logging.
+    case disabled
     /// log something generally unimportant (lowest priority)
     case verbose
     /// log something which help during debugging (low priority)
@@ -16,10 +18,27 @@ public enum LogLevel: String, CaseIterable, Codable {
     case warning
     /// log something which will keep you awake at night (highest priority)
     case error
-    /// Disables logging.
-    case disabled
 
     static let defaultLevel = LogLevel.warning
+}
+
+extension LogLevel: CustomStringConvertible {
+    public var description: String {
+        switch self {
+        case .disabled:
+            return "disabled"
+        case .verbose:
+            return "verbose"
+        case .debug:
+            return "debug"
+        case .info:
+            return "info"
+        case .warning:
+            return "warning"
+        case .error:
+            return "error"
+        }
+    }
 }
 
 extension LogLevel: Comparable {

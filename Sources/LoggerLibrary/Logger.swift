@@ -6,7 +6,7 @@
 //
 
 public protocol Logger {
-    func setup(logLevel: LogLevel)
+    init(logLevel: LogLevel)
     func log<Category: CustomStringConvertible>(_ level: LogLevel, _ category: Category, _ message: @autoclosure () -> String)
 }
 

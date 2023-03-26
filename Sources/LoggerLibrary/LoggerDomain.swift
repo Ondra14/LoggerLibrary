@@ -1,6 +1,6 @@
 //
 //  LoggerDomain.swift
-//  
+//
 //
 //  Created by Ondřej Veselý on 20.01.2023.
 //

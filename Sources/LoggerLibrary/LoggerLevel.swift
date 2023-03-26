@@ -1,11 +1,11 @@
 //
-//  LogLevel.swift
+//  LoggerLevel.swift
+//  
 //
-//
-//  Created by Ondřej Veselý on 04.07.2022.
+//  Created by Ondřej Veselý on 20.01.2023.
 //
 
-public enum LogLevel: Int, CaseIterable, Codable {
+public enum LoggerLevel: Int, CaseIterable, Codable {
     /// Disables logging.
     case disabled
     /// log something generally unimportant (lowest priority)
@@ -19,10 +19,10 @@ public enum LogLevel: Int, CaseIterable, Codable {
     /// log something which will keep you awake at night (highest priority)
     case error
 
-    static let defaultLevel = LogLevel.warning
+    public static let defaultLevel = LoggerLevel.warning
 }
 
-extension LogLevel: CustomStringConvertible {
+extension LoggerLevel: CustomStringConvertible {
     public var description: String {
         switch self {
         case .disabled:
@@ -41,13 +41,13 @@ extension LogLevel: CustomStringConvertible {
     }
 }
 
-extension LogLevel: Comparable {
+extension LoggerLevel: Comparable {
     /// Compares levels by severity.
     /// - Parameters:
     ///   - lhs: Left operand.
     ///   - rhs: Right operand.
     /// - Returns: `true` if left operand has lower severity than right operand.
-    public static func < (lhs: LogLevel, rhs: LogLevel) -> Bool {
+    public static func < (lhs: LoggerLevel, rhs: LoggerLevel) -> Bool {
         lhs.rawValue < rhs.rawValue
     }
 }

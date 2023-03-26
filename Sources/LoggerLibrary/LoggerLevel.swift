@@ -9,8 +9,8 @@
 ///
 /// Each case of the enumeration corresponds to a specific logging level, with `disabled` representing the lowest level of logging and `error` representing the highest level.
 ///
-/// - Note: This enumeration conforms to the `Int`, `CaseIterable`, and `Codable` protocols, allowing it to be used in a variety of contexts.
-public enum LoggerLevel: Int, CaseIterable, Codable {
+/// - Note: This enumeration conforms to the `Int`, `CaseIterable` protocols, allowing it to be used in a variety of contexts.
+public enum LoggerLevel: Int, CaseIterable {
     /// The `disabled` logging level, indicating that no logging should be performed.
     case disabled
     

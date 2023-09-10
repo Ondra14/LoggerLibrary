@@ -56,7 +56,7 @@ jobs:
                 --target LoggerLibrary \
                 --hosting-base-path /loggerlibrary/"$tag" \
                 --source-service-base-url https://github.com/Ondra14/LoggerLibrary.git \
-                --checkout-path ./
+                --checkout-path docs-out/"$tag"
               
   
   

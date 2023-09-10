@@ -19,8 +19,8 @@ jobs:
   build:
     runs-on: macos-13
     steps:
-      - name: Select Xcode 14.3
-        run: sudo xcode-select -s /Applications/Xcode_14.3.app
+#      - name: Select Xcode 14.3
+#        run: sudo xcode-select -s /Applications/Xcode_14.3.app
 
       - name: Checkout Package
         uses: actions/checkout@v3
@@ -50,16 +50,25 @@ jobs:
 
               git checkout .;
               git checkout "$tag";
-
-              swift package \
-                --allow-writing-to-directory docs-out/"$tag" \
-                generate-documentation \
+              
+              swift package plugin generate-documentation \
+                --source-service github \
                 --target LoggerLibrary \
-                --output-path docs-out/"$tag" \
-                --transform-for-static-hosting \
                 --hosting-base-path /loggerlibrary/"$tag" \
-                && echo "✅ Documentation generated for BreadcrumbsLoggerLibrary @ "$tag" release." \
-                || echo "⚠️ Documentation skipped for BreadcrumbsLoggerLibrary @ "$tag".";
+                --source-service-base-url https://github.com/Ondra14/LoggerLibrary.git \
+                --checkout-path ./
+              
+  
+  
+#              swift package \
+#                --allow-writing-to-directory docs-out/"$tag" \
+#                generate-documentation \
+#                --target LoggerLibrary \
+#                --output-path docs-out/"$tag" \
+#                --transform-for-static-hosting \
+#                --hosting-base-path /loggerlibrary/"$tag" \
+#                && echo "✅ Documentation generated for LoggerLibrary @ "$tag" release." \
+#                || echo "⚠️ Documentation skipped for LoggerLibrary @ "$tag".";
             fi;
           done
 

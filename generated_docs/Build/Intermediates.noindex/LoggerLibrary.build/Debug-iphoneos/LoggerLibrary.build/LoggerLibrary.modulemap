@@ -1,0 +1,4 @@
+module LoggerLibrary {
+header "LoggerLibrary-Swift.h"
+export *
+}

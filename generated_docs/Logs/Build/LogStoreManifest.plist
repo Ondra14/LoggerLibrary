@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>logFormatVersion</key>
+	<integer>10</integer>
+	<key>logs</key>
+	<dict>
+		<key>E0B841DD-44B5-48D8-81E4-F372EEFC3BD0</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>E0B841DD-44B5-48D8-81E4-F372EEFC3BD0.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>LoggerLibrary</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>LoggerLibrary</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Cleaning workspace LoggerLibrary with scheme LoggerLibrary</string>
+			<key>timeStartedRecording</key>
+			<real>716043644.99935496</real>
+			<key>timeStoppedRecording</key>
+			<real>716043645.15635395</real>
+			<key>title</key>
+			<string>Cleaning workspace LoggerLibrary with scheme LoggerLibrary</string>
+			<key>uniqueIdentifier</key>
+			<string>E0B841DD-44B5-48D8-81E4-F372EEFC3BD0</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

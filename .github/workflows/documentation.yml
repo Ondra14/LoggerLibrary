@@ -65,17 +65,9 @@ jobs:
               OUTPUT_DIR="$(pwd)/build"
               cd $DOCCARCHIVE_PATH
               cd $CURRENT_DIR
-              mkdir docs-out
-              mkdir docs-out/"$tag"
 
+              xcrun docc process-archive transform-for-static-hosting "$CURRENT_DIR/generated_docs/Build/Products/Debug-iphoneos/LoggerLibrary.doccarchive" --output-path "$CURRENT_DIR/docs-out/$tag/" --hosting-base-path loggerlibrary/"$tag"
 
-              swift package plugin generate-documentation \
-                --source-service github \
-                --output-path /Users/ondrejvesely/Xcode/LoggerLibrary/docs-out/"$tag" \
-                --target LoggerLibrary \
-                --hosting-base-path /loggerlibrary/"$tag" \
-                --source-service-base-url https://github.com/Ondra14/LoggerLibrary.git \
-                --checkout-path /Users/ondrejvesely/Xcode/LoggerLibrary
             fi;
           done
 

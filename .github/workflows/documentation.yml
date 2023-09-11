@@ -65,10 +65,9 @@ jobs:
               OUTPUT_DIR="$(pwd)/build"
               cd $DOCCARCHIVE_PATH
               cd $CURRENT_DIR
-              #mkdir docs-out
-              #mkdir docs-out/"$tag"
-              xcrun docc process-archive transform-for-static-hosting "$CURRENT_DIR/generated_docs/Build/Products/Debug-iphoneos/BlinqSDK.doccarchive --output-path  "$CURRENT_DIR"/docs-out/$tag/ --hosting-base-path loggerlibrary/"$tag"
-      
+
+              xcrun docc process-archive transform-for-static-hosting "$CURRENT_DIR/generated_docs/Build/Products/Debug-iphoneos/LoggerLibrary.doccarchive" --output-path "$CURRENT_DIR/docs-out/$tag/" --hosting-base-path loggerlibrary/"$tag"
+
             fi;
           done
 

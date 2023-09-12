@@ -75,11 +75,12 @@ jobs:
         run: 'sudo chown -R $USER docs-out'
 
       - name: Show contents of docs-out
-        run: ls -al docs-out
+        run: find docs-out/
 
       - name: Publish documentation to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.7
         with:
+          token: ${{ secrets.GITHUB_TOKEN }}
           branch: gh-pages
           folder: docs-out
           single-commit: true

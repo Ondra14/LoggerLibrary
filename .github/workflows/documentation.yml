@@ -74,6 +74,9 @@ jobs:
       - name: Fix permissions
         run: 'sudo chown -R $USER docs-out'
 
+      - name: Show contents of docs-out
+        run: ls -al docs-out
+
       - name: Publish documentation to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.7
         with:

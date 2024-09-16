@@ -9,14 +9,22 @@ let package = Package(
         .iOS(.v13), .tvOS(.v13), .macOS(.v10_15), .watchOS(.v6)
     ],
     products: [
-        // Products define the executables and libraries a package produces, and make them visible to other packages.
+        // The main Logger library product
         .library(
             name: "LoggerLibrary",
-            targets: ["LoggerLibrary"])
+            targets: ["LoggerLibrary"]
+        ),
+        // The SwiftLogAdapter library product that integrates with Apple's Swift Logging API
+        .library(
+            name: "SwiftLogAdapterLibrary",
+            targets: ["SwiftLogAdapterLibrary"]
+        )
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
         .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.0.0"),
+        // Adding the swift-log package dependency
+        .package(url: "https://github.com/apple/swift-log.git", from: "1.4.0")
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -24,7 +32,16 @@ let package = Package(
         .target(
             name: "LoggerLibrary",
             dependencies: []),
+        // The SwiftLogAdapter library target that depends on both LoggerLibrary and swift-log
+        .target(
+            name: "SwiftLogAdapterLibrary",
+            dependencies: [
+                "LoggerLibrary",
+                .product(name: "Logging", package: "swift-log")
+            ]
+        ),
         .testTarget(
             name: "LoggerLibraryTests",
             dependencies: ["LoggerLibrary"])
-    ])
+    ]
+)

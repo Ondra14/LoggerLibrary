@@ -1,6 +1,0 @@
-Target dependency graph (3 targets)
-LoggerLibrary in LoggerLibrary, no dependencies
-LoggerLibrary in LoggerLibrary, depends on:
-LoggerLibrary in LoggerLibrary (explicit)
-LoggerLibraryTests in LoggerLibrary, depends on:
-LoggerLibrary in LoggerLibrary (explicit)

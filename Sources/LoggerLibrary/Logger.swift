@@ -10,18 +10,6 @@
 public protocol Logger: Sendable {
     /// Writes a message to the log.
     func log(_ level: LoggerLevel, _ domain: LoggerDomain, _ message: @autoclosure @escaping () -> String)
-
-    /// Set level for specific domain or global level. By default, global level is set to ``LoggerLevel/info``.
-    ///
-    /// Log messages are filtered by level associated with that Logger's domain (if it is configured),
-    /// otherwise by global level.
-    /// - Parameters:
-    ///   - level: The log level for specific domain or global level. For the available log levels, see ``LoggerLevel``.
-    ///   - domain: Specific domain. Use nil to set global level.
-    func set(level: LoggerLevel, for domain: LoggerDomain?)
-
-    /// Resets the logging level setting for all logging domains.
-    func resetLevels()
 }
 
 public extension Logger {

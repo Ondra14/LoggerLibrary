@@ -1,6 +1,0 @@
-version: "Apple Swift version 5.8 (swiftlang-5.8.0.124.2 clang-1403.0.22.11.100)"
-options: "f9e9ab71075f55ed43ea1a5bc951230505d42b3aa080cca646fd9b951ccbafc1"
-build_start_time: [1694350852, 150812000]
-build_end_time: [1694350855, 426077000]
-inputs:
-  "/Users/ondrejvesely/Xcode/LoggerLibrary/Tests/LoggerLibraryTests/LogLevelTest.swift": [1694344225, 671661861]

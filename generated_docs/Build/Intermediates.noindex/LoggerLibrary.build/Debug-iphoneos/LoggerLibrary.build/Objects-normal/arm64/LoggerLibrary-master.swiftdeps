@@ -1,8 +1,0 @@
-version: "Apple Swift version 5.8 (swiftlang-5.8.0.124.2 clang-1403.0.22.11.100)"
-options: "d93b92a6683f223014d20ebfe69e7baef07cd06938d6954c14e64f9f9c43c485"
-build_start_time: [1694350852, 5431000]
-build_end_time: [1694350852, 278865000]
-inputs:
-  "/Users/ondrejvesely/Xcode/LoggerLibrary/Sources/LoggerLibrary/Logger.swift": [1694348259, 989639810]
-  "/Users/ondrejvesely/Xcode/LoggerLibrary/Sources/LoggerLibrary/LoggerDomain.swift": [1694344225, 671097191]
-  "/Users/ondrejvesely/Xcode/LoggerLibrary/Sources/LoggerLibrary/LoggerLevel.swift": [1694344225, 671502193]

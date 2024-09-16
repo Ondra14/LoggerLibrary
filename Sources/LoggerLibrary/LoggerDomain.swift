@@ -6,7 +6,7 @@
 //
 
 /// The domain shared by the logs originating from the same ``Logger``.
-public struct LoggerDomain: CustomStringConvertible, ExpressibleByStringLiteral, Hashable {
+public struct LoggerDomain: CustomStringConvertible, ExpressibleByStringLiteral, Hashable, Sendable {
     public let description: String
 
     public init(stringLiteral value: String) {

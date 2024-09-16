@@ -15,6 +15,7 @@ public class SwiftLogAdapter: LoggerLibrary.Logger {
 
     public init(label: String) {
         self.logger = Logger(label: label)
+        logger.logLevel = Logger.Level.trace
     }
 
     public func log(_ level: LoggerLevel, _ domain: LoggerDomain, _ message: @autoclosure @escaping () -> String) {

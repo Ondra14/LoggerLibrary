@@ -54,7 +54,7 @@ public struct PrintLogger: Logger {
         guard level != .disabled,
               level >= logLevel else { return }
         let date = Self.defaultDateFormatter.string(from: Date())
-        print("\(date) [\(domain.description)]", message())
+        print("\(date) \(level.emoji) [\(domain.description)]", message())
     }
 
     // MARK: - Date Formatter

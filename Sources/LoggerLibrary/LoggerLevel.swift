@@ -7,7 +7,9 @@
 
 /// An enumeration representing the various levels of logging supported by a logger instance.
 ///
-/// Each case of the enumeration corresponds to a specific logging level, with `disabled` representing the lowest level of logging and `error` representing the highest level.
+/// Each case of the enumeration corresponds to a specific logging level,
+/// with `disabled` representing the lowest level of logging
+/// and `error` representing the highest level.
 ///
 /// - Note: This enumeration conforms to the `Int`, `CaseIterable` protocols, allowing it to be used in a variety of contexts.
 public enum LoggerLevel: Int, CaseIterable, Sendable {
@@ -60,5 +62,25 @@ extension LoggerLevel: Comparable {
     /// - Returns: `true` if left operand has lower severity than right operand.
     public static func < (lhs: LoggerLevel, rhs: LoggerLevel) -> Bool {
         lhs.rawValue < rhs.rawValue
+    }
+}
+
+public extension LoggerLevel {
+    /// Returns an emoji representation corresponding to the log level.
+    var emoji: String {
+        switch self {
+        case .disabled:
+            return "🚫" // Disabled
+        case .verbose:
+            return "🔍" // Verbose
+        case .debug:
+            return "🐞" // Debug
+        case .info:
+            return "ℹ️" // Info
+        case .warning:
+            return "⚠️" // Warning
+        case .error:
+            return "❌" // Error
+        }
     }
 }

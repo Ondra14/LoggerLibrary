@@ -8,17 +8,22 @@
 import LoggerLibrary // Import the base Logger library
 import Logging // Import Apple's Swift Logging API
 
-public class SwiftLogAdapter: LoggerLibrary.Logger {
-    private var logger: Logging.Logger
+public final class SwiftLogAdapter: LoggerLibrary.Logger {
+    private let logger: Logging.Logger
     private var levels: [LoggerDomain: LoggerLevel] = [:]
     private var globalLevel: LoggerLevel = .defaultLevel
 
     public init(label: String) {
-        self.logger = Logger(label: label)
+        LoggingSystem.bootstrap { label in
+            FileLogHandler(label: label)
+        }
+        var logger = Logger(label: label)
         // Set the default log level to trace for detailed logging.
         // All logging is managed by Apple's swift-log, while LoggerLibrary controls
         // which log messages should be output based on the configured levels.
         logger.logLevel = Logger.Level.trace
+
+        self.logger = logger
     }
 
     public func log(_ level: LoggerLevel, _ domain: LoggerDomain, _ message: @autoclosure @escaping () -> String) {

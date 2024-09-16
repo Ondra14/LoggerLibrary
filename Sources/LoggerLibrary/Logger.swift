@@ -7,7 +7,7 @@
 
 /// An protocol for writing interpolated string messages to the unified logging system.
 /// corresponding to a log level.
-public protocol Logger {
+public protocol Logger: Sendable {
     /// Writes a message to the log.
     func log(_ level: LoggerLevel, _ domain: LoggerDomain, _ message: @autoclosure @escaping () -> String)
 

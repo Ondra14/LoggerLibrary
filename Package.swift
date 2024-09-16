@@ -12,13 +12,11 @@ let package = Package(
         // The main Logger library product
         .library(
             name: "LoggerLibrary",
-            targets: ["LoggerLibrary"]
-        ),
+            targets: ["LoggerLibrary"]),
         // The SwiftLogAdapter library product that integrates with Apple's Swift Logging API
         .library(
             name: "SwiftLogAdapterLibrary",
-            targets: ["SwiftLogAdapterLibrary"]
-        )
+            targets: ["SwiftLogAdapterLibrary"])
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -38,10 +36,8 @@ let package = Package(
             dependencies: [
                 "LoggerLibrary",
                 .product(name: "Logging", package: "swift-log")
-            ]
-        ),
+            ]),
         .testTarget(
             name: "LoggerLibraryTests",
             dependencies: ["LoggerLibrary"])
-    ]
-)
+    ])

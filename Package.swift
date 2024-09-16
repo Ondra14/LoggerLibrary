@@ -1,6 +1,4 @@
 // swift-tools-version: 5.6
-// The swift-tools-version declares the minimum version of Swift required to build this package.
-
 import PackageDescription
 
 let package = Package(
@@ -13,29 +11,26 @@ let package = Package(
         .library(
             name: "LoggerLibrary",
             targets: ["LoggerLibrary"]),
-        // The SwiftLogAdapter library product that integrates with Apple's Swift Logging API
+        // The TCA Logger client library product
         .library(
-            name: "SwiftLogAdapterLibrary",
-            targets: ["SwiftLogAdapterLibrary"])
+            name: "LoggerLibraryTCA",
+            targets: ["LoggerLibraryTCA"])
     ],
     dependencies: [
-        // Dependencies declare other packages that this package depends on.
-        .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.0.0"),
-        // Adding the swift-log package dependency
-        .package(url: "https://github.com/apple/swift-log.git", from: "1.4.0")
+        // Adding the Composable Architecture package dependency
+        .package(url: "https://github.com/pointfreeco/swift-composable-architecture.git", from: "1.2.0")
     ],
     targets: [
-        // Targets are the basic building blocks of a package. A target can define a module or a test suite.
-        // Targets can depend on other targets in this package, and on products in packages this package depends on.
+        // The main Logger library target
         .target(
             name: "LoggerLibrary",
             dependencies: []),
-        // The SwiftLogAdapter library target that depends on both LoggerLibrary and swift-log
+        // The TCA client target that depends on both LoggerLibrary and Composable Architecture
         .target(
-            name: "SwiftLogAdapterLibrary",
+            name: "LoggerLibraryTCA",
             dependencies: [
                 "LoggerLibrary",
-                .product(name: "Logging", package: "swift-log")
+                .product(name: "ComposableArchitecture", package: "swift-composable-architecture")
             ]),
         .testTarget(
             name: "LoggerLibraryTests",

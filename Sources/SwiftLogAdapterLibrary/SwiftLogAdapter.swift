@@ -15,6 +15,9 @@ public class SwiftLogAdapter: LoggerLibrary.Logger {
 
     public init(label: String) {
         self.logger = Logger(label: label)
+        // Set the default log level to trace for detailed logging.
+        // All logging is managed by Apple's swift-log, while LoggerLibrary controls
+        // which log messages should be output based on the configured levels.
         logger.logLevel = Logger.Level.trace
     }
 

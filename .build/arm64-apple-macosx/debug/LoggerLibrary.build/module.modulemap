@@ -1,0 +1,4 @@
+module LoggerLibrary {
+    header "/Users/ondrejvesely/Xcode/LoggerLibrary/.build/arm64-apple-macosx/debug/LoggerLibrary.build/LoggerLibrary-Swift.h"
+    requires objc
+}

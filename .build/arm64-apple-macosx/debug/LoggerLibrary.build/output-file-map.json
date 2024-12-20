@@ -1,0 +1,23 @@
+{
+  "": {
+    "swift-dependencies": "/Users/ondrejvesely/Xcode/LoggerLibrary/.build/arm64-apple-macosx/debug/LoggerLibrary.build/master.swiftdeps"
+  },
+  "/Users/ondrejvesely/Xcode/LoggerLibrary/Sources/LoggerLibrary/Logger.swift": {
+    "dependencies": "/Users/ondrejvesely/Xcode/LoggerLibrary/.build/arm64-apple-macosx/debug/LoggerLibrary.build/Logger.d",
+    "object": "/Users/ondrejvesely/Xcode/LoggerLibrary/.build/arm64-apple-macosx/debug/LoggerLibrary.build/Logger.swift.o",
+    "swiftmodule": "/Users/ondrejvesely/Xcode/LoggerLibrary/.build/arm64-apple-macosx/debug/LoggerLibrary.build/Logger~partial.swiftmodule",
+    "swift-dependencies": "/Users/ondrejvesely/Xcode/LoggerLibrary/.build/arm64-apple-macosx/debug/LoggerLibrary.build/Logger.swiftdeps"
+  },
+  "/Users/ondrejvesely/Xcode/LoggerLibrary/Sources/LoggerLibrary/LoggerDomain.swift": {
+    "dependencies": "/Users/ondrejvesely/Xcode/LoggerLibrary/.build/arm64-apple-macosx/debug/LoggerLibrary.build/LoggerDomain.d",
+    "object": "/Users/ondrejvesely/Xcode/LoggerLibrary/.build/arm64-apple-macosx/debug/LoggerLibrary.build/LoggerDomain.swift.o",
+    "swiftmodule": "/Users/ondrejvesely/Xcode/LoggerLibrary/.build/arm64-apple-macosx/debug/LoggerLibrary.build/LoggerDomain~partial.swiftmodule",
+    "swift-dependencies": "/Users/ondrejvesely/Xcode/LoggerLibrary/.build/arm64-apple-macosx/debug/LoggerLibrary.build/LoggerDomain.swiftdeps"
+  },
+  "/Users/ondrejvesely/Xcode/LoggerLibrary/Sources/LoggerLibrary/LoggerLevel.swift": {
+    "dependencies": "/Users/ondrejvesely/Xcode/LoggerLibrary/.build/arm64-apple-macosx/debug/LoggerLibrary.build/LoggerLevel.d",
+    "object": "/Users/ondrejvesely/Xcode/LoggerLibrary/.build/arm64-apple-macosx/debug/LoggerLibrary.build/LoggerLevel.swift.o",
+    "swiftmodule": "/Users/ondrejvesely/Xcode/LoggerLibrary/.build/arm64-apple-macosx/debug/LoggerLibrary.build/LoggerLevel~partial.swiftmodule",
+    "swift-dependencies": "/Users/ondrejvesely/Xcode/LoggerLibrary/.build/arm64-apple-macosx/debug/LoggerLibrary.build/LoggerLevel.swiftdeps"
+  }
+}

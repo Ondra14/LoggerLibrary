@@ -5,14 +5,13 @@
 //  Created by Ondřej Veselý on 22.10.2025.
 //
 
-import Testing
 import Dependencies
 @testable import LoggerLibrary
 @testable import LoggerLibraryTCA
+import Testing
 
 @Suite("LoggerClientKey Tests")
 struct LoggerClientKeyTests {
-
     @Test("LoggerKey provides liveValue")
     func liveValue() {
         let logger = LoggerKey.liveValue
@@ -27,7 +26,7 @@ struct LoggerClientKeyTests {
     }
 
     @Test("LoggerKey provides testValue")
-    func testValue() {
+    func value() {
         let logger = LoggerKey.testValue
 
         // testValue should be NoOpLogger for clean test output
@@ -119,8 +118,7 @@ struct LoggerClientKeyTests {
     func customLoggerInjection() {
         let customLogger = DomainFilteredLogger(
             defaultLogLevel: .error,
-            domainLogLevels: ["Test": .verbose]
-        )
+            domainLogLevels: ["Test": .verbose])
 
         withDependencies {
             $0.logger = customLogger

@@ -5,12 +5,11 @@
 //  Created by Ondřej Veselý on 22.10.2025.
 //
 
-import Testing
 @testable import LoggerLibrary
+import Testing
 
 @Suite("DomainFilteredLogger Tests")
 struct DomainFilteredLoggerTests {
-
     // Test domains
     private let networkDomain: LoggerDomain = "Network"
     private let databaseDomain: LoggerDomain = "Database"
@@ -34,8 +33,7 @@ struct DomainFilteredLoggerTests {
             domainLogLevels: [
                 networkDomain: .debug,
                 databaseDomain: .info
-            ]
-        )
+            ])
 
         #expect(logger.defaultLogLevel == .warning)
         #expect(logger.domainLogLevels[networkDomain] == .debug)
@@ -49,8 +47,7 @@ struct DomainFilteredLoggerTests {
             defaultLogLevel: .info,
             domainLogLevels: [
                 networkDomain: .disabled
-            ]
-        )
+            ])
 
         #expect(logger.domainLogLevels[networkDomain] == .disabled)
     }
@@ -59,8 +56,7 @@ struct DomainFilteredLoggerTests {
     func emptyDomainDictionary() {
         let logger = DomainFilteredLogger(
             defaultLogLevel: .info,
-            domainLogLevels: [:]
-        )
+            domainLogLevels: [:])
 
         #expect(logger.defaultLogLevel == .info)
         #expect(logger.domainLogLevels.isEmpty)
@@ -74,8 +70,7 @@ struct DomainFilteredLoggerTests {
                 networkDomain: .verbose,
                 databaseDomain: .debug,
                 uiDomain: .info
-            ]
-        )
+            ])
 
         #expect(logger.domainLogLevels[networkDomain] == .verbose)
         #expect(logger.domainLogLevels[databaseDomain] == .debug)
@@ -86,8 +81,7 @@ struct DomainFilteredLoggerTests {
     func convenienceMethods() {
         let logger = DomainFilteredLogger(
             defaultLogLevel: .verbose,
-            domainLogLevels: [:]
-        )
+            domainLogLevels: [:])
 
         // These should compile and not crash
         logger.verbose(networkDomain, "Verbose message")

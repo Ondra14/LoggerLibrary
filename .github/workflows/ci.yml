@@ -1,0 +1,39 @@
+name: Lint, Build, and Test
+
+on:
+  push:
+    branches: [ develop, main ]
+  pull_request:
+    branches: [ develop, main ]
+  workflow_dispatch:
+
+jobs:
+  lint-and-test:
+    runs-on: macos-latest
+    permissions:
+      contents: read
+      checks: write
+      pull-requests: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: SwiftLint
+        uses: cirruslabs/swiftlint-action@v1
+        with:
+          version: latest
+          args: --strict
+
+      - name: Build and Test
+        run: |
+          xcodebuild test \
+            -scheme LoggerLibrary \
+            -destination 'platform=macOS' \
+            -resultBundlePath TestResults.xcresult
+
+      - name: Publish Test Results
+        uses: kishikawakatsumi/xcresulttool@v1
+        if: always()
+        with:
+          path: TestResults.xcresult
+          show-passed-tests: false

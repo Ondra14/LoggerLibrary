@@ -5,12 +5,11 @@
 //  Created by Ondřej Veselý on 22.10.2025.
 //
 
-import Testing
 @testable import LoggerLibrary
+import Testing
 
 @Suite("NoOpLogger Tests")
 struct NoOpLoggerTests {
-
     @Test("NoOpLogger implements Logger protocol")
     func implementsProtocol() {
         let logger: Logger = NoOpLogger()
@@ -88,7 +87,7 @@ struct NoOpLoggerTests {
     }
 
     @Test("NoOpLogger typical test usage")
-    func testUsage() {
+    func usage() {
         // Typical usage in tests
         struct SomeFeature {
             let logger: Logger

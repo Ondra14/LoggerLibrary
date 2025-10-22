@@ -5,12 +5,11 @@
 //  Created by Ondřej Veselý on 22.10.2025.
 //
 
-import Testing
 @testable import LoggerLibrary
+import Testing
 
 @Suite("LoggerDomain Tests")
 struct LoggerDomainTests {
-
     @Test("LoggerDomain can be created with string literal")
     func stringLiteralInitialization() {
         let domain: LoggerDomain = "Network"

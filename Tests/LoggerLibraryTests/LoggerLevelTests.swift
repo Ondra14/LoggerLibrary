@@ -5,12 +5,11 @@
 //  Created by Ondřej Veselý on 22.10.2025.
 //
 
-import Testing
 @testable import LoggerLibrary
+import Testing
 
 @Suite("LoggerLevel Tests")
 struct LoggerLevelTests {
-
     @Test("LoggerLevel raw values are ordered correctly")
     func rawValuesOrdering() {
         #expect(LoggerLevel.disabled.rawValue < LoggerLevel.verbose.rawValue)

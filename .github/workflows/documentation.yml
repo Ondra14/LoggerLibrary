@@ -1,87 +1,31 @@
-# Build and deploy DocC to GitHub pages. Based off of @karwa's work here:
-# https://github.com/karwa/swift-url/blob/main/.github/workflows/docs.yml
-name: Documentation
+name: Deploy Documentation
 
 on:
-  release:
-    types:
-      - published
   push:
-    branches:
-      - main
+    branches: [ main ]
   workflow_dispatch:
 
-concurrency:
-  group: docs-${{ github.ref }}
-  cancel-in-progress: true
-
 jobs:
-  build:
-    runs-on: macos-13
+  build-documentation:
+    name: Build and Deploy Documentation
+    runs-on: macos-latest
+    permissions:
+      contents: write
     steps:
-      - name: Checkout Package
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+
+      - name: Build DocC
+        run: |
+          swift package --allow-writing-to-directory ./docs \
+            generate-documentation \
+            --target LoggerLibrary \
+            --output-path ./docs \
+            --transform-for-static-hosting \
+            --hosting-base-path LoggerLibrary
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          fetch-depth: 0
-
-      - name: Checkout gh-pages Branch
-        uses: actions/checkout@v3
-        with:
-          ref: gh-pages
-          path: docs-out
-
-      - name: Build documentation
-        run: >
-          rm -rf docs-out/.git;
-          rm -rf docs-out/main;
-          git tag -l --sort=-v:refname | grep -e "\d\+\.\d\+.0" | tail -n +6 | xargs -I {} rm -rf {};
-
-          for tag in $(echo "main"; git tag -l --sort=-v:refname | grep -e "\d\+\.\d\+.0" | head -6);
-          do
-            if [ -d "docs-out/$tag/data/documentation/loggerlibrary" ]
-            then
-              echo "✅ Documentation for "$tag" already exists.";
-            else
-              echo "⏳ Generating documentation for LoggerLibrary @ "$tag" release.";
-              rm -rf "docs-out/$tag";
-
-              git checkout .;
-              git checkout "$tag";
-              
-              CURRENT_DIR=$(pwd)
-              rm -rf "$CURRENT_DIR/generated_docs"
-              mkdir "$CURRENT_DIR/generated_docs"
-
-              xcodebuild clean -scheme LoggerLibrary -destination "generic/platform=iOS" -derivedDataPath "$CURRENT_DIR/generated_docs"
-              xcodebuild docbuild -scheme LoggerLibrary -destination "generic/platform=iOS" -derivedDataPath "$CURRENT_DIR/generated_docs"
-              if [ $? -ne 0 ]; then
-                  echo "Documentation generation failed."
-                  exit 1
-              fi
-              
-              # archive .doccarchive
-              DOCCARCHIVE_PATH="$CURRENT_DIR/generated_docs/Build/Products/Debug-iphoneos/"
-              DOCCARCHIVE_NAME='LoggerLibrary.doccarchive'
-              OUTPUT_DIR="$(pwd)/build"
-              cd $DOCCARCHIVE_PATH
-              cd $CURRENT_DIR
-
-              xcrun docc process-archive transform-for-static-hosting "$CURRENT_DIR/generated_docs/Build/Products/Debug-iphoneos/LoggerLibrary.doccarchive" --output-path "$CURRENT_DIR/docs-out/$tag/" --hosting-base-path loggerlibrary/"$tag"
-
-            fi;
-          done
-
-      - name: Fix permissions
-        run: 'sudo chown -R $USER docs-out'
-
-      - name: Show contents of docs-out
-        run: find docs-out/
-
-      - name: Publish documentation to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@4.1.7
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          branch: gh-pages
-          folder: docs-out
-          single-commit: true
-
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
+          cname: false

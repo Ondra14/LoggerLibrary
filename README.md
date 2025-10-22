@@ -1,6 +1,21 @@
-# LoggerLibrary
+<p align="center">
+  <img src=".github/assets/logo.png" width="400" alt="LoggerLibrary Logo">
+</p>
 
+<h1 align="center">LoggerLibrary</h1>
+
+<p align="center">
 A lightweight, flexible logging framework for Swift applications with support for domain-based filtering.
+</p>
+
+<p align="center">
+  <a href="#features">Features</a> •
+  <a href="#installation">Installation</a> •
+  <a href="#quick-start">Quick Start</a> •
+  <a href="#documentation">Documentation</a>
+</p>
+
+---
 
 ## Overview
 
@@ -330,6 +345,15 @@ logger.debug(.network, "Response: \(expensiveJSONFormatting(data))")
 ```
 
 This design provides zero-cost logging when messages are filtered out by log level or domain configuration.
+
+## Documentation
+
+Full documentation is available in the DocC bundle. Build documentation in Xcode:
+**Product → Build Documentation**
+
+Or explore the guides:
+- [Getting Started Guide](Sources/LoggerLibrary/LoggerLibrary.docc/Articles/GettingStarted.md)
+- [Architecture Guide](Sources/LoggerLibrary/LoggerLibrary.docc/Articles/ArchitectureGuide.md)
 
 ## Requirements
 

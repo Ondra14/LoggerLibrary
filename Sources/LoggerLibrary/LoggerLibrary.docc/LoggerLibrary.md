@@ -1,5 +1,10 @@
 # ``LoggerLibrary``
 
+@Metadata {
+    @DisplayName("LoggerLibrary")
+    @PageImage(purpose: icon, source: "logo")
+}
+
 A lightweight, flexible logging framework with domain-based filtering for Swift applications.
 
 ## Overview

@@ -1,5 +1,9 @@
 # Architecture Guide
 
+@Metadata {
+    @PageColor(blue)
+}
+
 Understand the protocol-first architecture and how to structure logging in modular applications.
 
 ## Overview

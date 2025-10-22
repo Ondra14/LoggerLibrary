@@ -1,5 +1,10 @@
 # Getting Started with LoggerLibrary
 
+@Metadata {
+    @PageKind(sampleCode)
+    @PageColor(orange)
+}
+
 Learn how to integrate LoggerLibrary into your Swift project and start logging.
 
 ## Overview

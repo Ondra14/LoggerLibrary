@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import LoggerLibrary
 
 /// A simple logger that prints log messages to the console using the `print` function.
 public let printLogger = PrintLogger(logLevel: .info)

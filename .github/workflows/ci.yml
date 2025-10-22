@@ -1,0 +1,52 @@
+name: Lint, Build, and Test
+
+on:
+  push:
+    branches: [ develop, main ]
+  pull_request:
+    branches: [ develop, main ]
+  workflow_dispatch:
+
+jobs:
+  lint-and-test:
+    runs-on: macos-latest
+    permissions:
+      contents: read
+      checks: write
+      pull-requests: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Cache Swift PM dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            .build
+            ~/Library/Caches/org.swift.swiftpm
+          key: ${{ runner.os }}-spm-${{ hashFiles('Package.resolved') }}
+          restore-keys: |
+            ${{ runner.os }}-spm-
+
+      - name: SwiftLint
+        uses: cirruslabs/swiftlint-action@v1
+        with:
+          version: latest
+          args: --strict
+
+      - name: Build
+        run: swift build -v
+
+      - name: Run Tests
+        run: |
+          mkdir -p reports
+          swift test --parallel --xunit-output reports/junit.xml
+
+      - name: Publish Test Results
+        uses: dorny/test-reporter@v1
+        if: always()
+        with:
+          name: Test Results
+          path: reports/junit-swift-testing.xml
+          reporter: java-junit
+          fail-on-error: true

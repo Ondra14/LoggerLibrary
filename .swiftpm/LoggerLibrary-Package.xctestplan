@@ -1,0 +1,31 @@
+{
+  "configurations" : [
+    {
+      "id" : "FB0B9747-EC83-4E17-82D1-728566DF5AC8",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "performanceAntipatternCheckerEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "LoggerLibraryTCATests",
+        "name" : "LoggerLibraryTCATests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "LoggerLibraryTests",
+        "name" : "LoggerLibraryTests"
+      }
+    }
+  ],
+  "version" : 1
+}

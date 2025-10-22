@@ -17,22 +17,29 @@ let package = Package(
             targets: ["LoggerLibraryTCA"])
     ],
     dependencies: [
-        // Adding the Composable Architecture package dependency
-        .package(url: "https://github.com/pointfreeco/swift-composable-architecture.git", from: "1.2.0")
+        // Adding the Dependencies package for dependency injection
+        .package(url: "https://github.com/pointfreeco/swift-dependencies.git", from: "1.0.0")
     ],
     targets: [
         // The main Logger library target
         .target(
             name: "LoggerLibrary",
             dependencies: []),
-        // The TCA client target that depends on both LoggerLibrary and Composable Architecture
+        // The TCA client target that depends on both LoggerLibrary and Dependencies
         .target(
             name: "LoggerLibraryTCA",
             dependencies: [
                 "LoggerLibrary",
-                .product(name: "ComposableArchitecture", package: "swift-composable-architecture")
+                .product(name: "Dependencies", package: "swift-dependencies")
             ]),
         .testTarget(
             name: "LoggerLibraryTests",
-            dependencies: ["LoggerLibrary"])
+            dependencies: ["LoggerLibrary"]),
+        .testTarget(
+            name: "LoggerLibraryTCATests",
+            dependencies: [
+                "LoggerLibraryTCA",
+                "LoggerLibrary",
+                .product(name: "Dependencies", package: "swift-dependencies")
+            ])
     ])

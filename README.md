@@ -1,12 +1,9 @@
-<p align="center">
-  <img src=".github/assets/logo.png" width="400" alt="LoggerLibrary Logo">
-</p>
-
 <h1 align="center">LoggerLibrary</h1>
 
 <p align="center">
 A lightweight, flexible logging framework for Swift applications with support for domain-based filtering.
 </p>
+
 
 <p align="center">
   <a href="#features">Features</a> •
@@ -18,6 +15,11 @@ A lightweight, flexible logging framework for Swift applications with support fo
 ---
 
 ## Overview
+
+<p align="center">
+  <img src=".github/assets/logo.png" alt="LoggerLibrary Logo">
+</p>
+
 
 LoggerLibrary provides a simple yet powerful logging abstraction that enables fine-grained control over log output across different domains of your application. Whether you're building an iOS app, macOS application, or server-side Swift project, LoggerLibrary offers the flexibility to log exactly what you need, when you need it.
 

@@ -9,6 +9,8 @@ Learn how to integrate LoggerLibrary into your Swift project and start logging.
 
 ## Overview
 
+![LoggerLibrary](logo.png)
+
 This guide walks you through the basics of using LoggerLibrary in your application, from defining domains to choosing the right logger implementation.
 
 ## Define Your Logging Domains

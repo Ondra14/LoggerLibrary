@@ -18,22 +18,35 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Cache Swift PM dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            .build
+            ~/Library/Caches/org.swift.swiftpm
+          key: ${{ runner.os }}-spm-${{ hashFiles('Package.resolved') }}
+          restore-keys: |
+            ${{ runner.os }}-spm-
+
       - name: SwiftLint
         uses: cirruslabs/swiftlint-action@v1
         with:
           version: latest
           args: --strict
 
-      - name: Build and Test
+      - name: Build
+        run: swift build -v
+
+      - name: Run Tests
         run: |
-          xcodebuild test \
-            -scheme LoggerLibrary \
-            -destination 'platform=macOS' \
-            -resultBundlePath TestResults.xcresult
+          mkdir -p reports
+          swift test --parallel --xunit-output reports/junit.xml
 
       - name: Publish Test Results
-        uses: kishikawakatsumi/xcresulttool@v1
+        uses: dorny/test-reporter@v1
         if: always()
         with:
-          path: TestResults.xcresult
-          show-passed-tests: false
+          name: Test Results
+          path: reports/junit-swift-testing.xml
+          reporter: java-junit
+          fail-on-error: true

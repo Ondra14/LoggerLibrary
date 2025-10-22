@@ -4,6 +4,11 @@
 /*.xcodeproj
 xcuserdata/
 DerivedData/
-.swiftpm/config/registries.json
-.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
+.swiftpm/config/
+.swiftpm/xcode/package.xcworkspace/
+.swiftpm/xcode/xcshareddata/IDEWorkspaceChecks.plist
 .netrc
+/reports
+/*.xcresult
+test-output.log
+build/

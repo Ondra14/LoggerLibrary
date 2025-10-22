@@ -4,6 +4,12 @@
 A lightweight, flexible logging framework for Swift applications with support for domain-based filtering.
 </p>
 
+<p align="center">
+  <a href="https://ondra14.github.io/LoggerLibrary/documentation/loggerlibrary/"><img src="https://img.shields.io/badge/docs-online-blue.svg" alt="Documentation"></a>
+  <a href="https://github.com/Ondra14/LoggerLibrary/actions"><img src="https://github.com/Ondra14/LoggerLibrary/workflows/Lint,%20Build,%20and%20Test/badge.svg" alt="CI Status"></a>
+  <a href="https://swift.org"><img src="https://img.shields.io/badge/Swift-5.6+-orange.svg" alt="Swift 5.6+"></a>
+  <a href="https://github.com/Ondra14/LoggerLibrary/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License"></a>
+</p>
 
 <p align="center">
   <a href="#features">Features</a> •
@@ -349,6 +355,8 @@ logger.debug(.network, "Response: \(expensiveJSONFormatting(data))")
 This design provides zero-cost logging when messages are filtered out by log level or domain configuration.
 
 ## Documentation
+
+📚 **[View Online Documentation](https://ondra14.github.io/LoggerLibrary/documentation/loggerlibrary/)**
 
 Full documentation is available in the DocC bundle. Build documentation in Xcode:
 **Product → Build Documentation**

@@ -26,7 +26,7 @@ let package = Package(
         // The main Logger library target
         .target(
             name: "LoggerLibrary",
-            dependencies: [],
+            dependencies: []
         ),
         // The TCA client target that depends on both LoggerLibrary and Dependencies
         .target(
@@ -34,7 +34,7 @@ let package = Package(
             dependencies: [
                 "LoggerLibrary",
                 .product(name: "Dependencies", package: "swift-dependencies")
-            ],
+            ]
         ),
         .testTarget(
             name: "LoggerLibraryTests",

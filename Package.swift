@@ -1,10 +1,10 @@
-// swift-tools-version: 5.6
+// swift-tools-version: 6.0
 import PackageDescription
 
 let package = Package(
     name: "LoggerLibrary",
     platforms: [
-        .iOS(.v13), .tvOS(.v13), .macOS(.v10_15), .watchOS(.v6)
+        .iOS(.v17), .tvOS(.v17), .macOS(.v14), .watchOS(.v10)
     ],
     products: [
         // The main Logger library product
@@ -26,14 +26,24 @@ let package = Package(
         // The main Logger library target
         .target(
             name: "LoggerLibrary",
-            dependencies: []),
+            dependencies: [],
+            swiftSettings: [
+                .enableUpcomingFeature("ExistentialAny"),
+                .enableUpcomingFeature("StrictConcurrency")
+            ]
+        ),
         // The TCA client target that depends on both LoggerLibrary and Dependencies
         .target(
             name: "LoggerLibraryTCA",
             dependencies: [
                 "LoggerLibrary",
                 .product(name: "Dependencies", package: "swift-dependencies")
-            ]),
+            ],
+            swiftSettings: [
+                .enableUpcomingFeature("ExistentialAny"),
+                .enableUpcomingFeature("StrictConcurrency")
+            ]
+        ),
         .testTarget(
             name: "LoggerLibraryTests",
             dependencies: ["LoggerLibrary"]),

@@ -27,10 +27,6 @@ let package = Package(
         .target(
             name: "LoggerLibrary",
             dependencies: [],
-            swiftSettings: [
-                .enableUpcomingFeature("ExistentialAny"),
-                .enableUpcomingFeature("StrictConcurrency")
-            ]
         ),
         // The TCA client target that depends on both LoggerLibrary and Dependencies
         .target(
@@ -39,10 +35,6 @@ let package = Package(
                 "LoggerLibrary",
                 .product(name: "Dependencies", package: "swift-dependencies")
             ],
-            swiftSettings: [
-                .enableUpcomingFeature("ExistentialAny"),
-                .enableUpcomingFeature("StrictConcurrency")
-            ]
         ),
         .testTarget(
             name: "LoggerLibraryTests",
